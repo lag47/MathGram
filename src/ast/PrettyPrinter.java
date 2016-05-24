@@ -4,7 +4,18 @@ public class PrettyPrinter implements ExprVisitor{
 
 	@Override
 	public Object visit(Expr e) {
-		// TODO Auto-generated method stub
+		if(e instanceof Number){
+			return visit((Number)e);
+		}
+		if(e instanceof BinExpr){
+			return visit((BinExpr)e);
+		}
+		if(e instanceof Function){
+			return visit((Function)e);
+		}
+		if(e instanceof Variable){
+			return visit((Variable)e);
+		}
 		return null;
 	}
 
