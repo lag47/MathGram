@@ -27,20 +27,37 @@ public class Interpreter implements ExprVisitor {
 
 	@Override
 	public Object visit(BinExpr e) {
-		// TODO Auto-generated method stub
+		double l=(Double)visit(e.left);
+		double r=(Double)visit(e.right);
+		switch (e.symbol){
+		case PLUS:
+			break;
+		}
 		return null;
 	}
 
 	@Override
+	/**Evaluates a Function and returns its result as a Double*/
 	public Object visit(Function e) {
-		// TODO Auto-generated method stub
-		return null;
+		double result=0;
+		switch (e.funct) {
+		case COS:
+			Math.cos((Double)visit(e.arg));
+			break;
+		case SIN:
+			Math.sin((Double)visit(e.arg));
+			break;
+			
+		case LN:
+			Math.log((Double)visit(e.arg));
+			break;
+		}
+		return result;
 	}
 
 	@Override
 	public Object visit(Number e) {
-		// TODO Auto-generated method stub
-		return null;
+		return e.val;
 	}
 
 	@Override

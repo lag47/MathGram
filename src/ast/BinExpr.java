@@ -5,9 +5,9 @@ public class BinExpr extends Expr {
 		PLUS, MINUS, DIV, MULT,EXP;
 	}
 
-	private Expr left;
-	private Expr right;
-	private Sym symbol;
+	Expr left;
+	Expr right;
+	Sym symbol;
 	public BinExpr(Expr left, Sym symbol, Expr right){
 		this.left=left;
 		this.symbol=symbol;
