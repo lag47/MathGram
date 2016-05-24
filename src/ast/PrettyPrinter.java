@@ -21,17 +21,28 @@ public class PrettyPrinter implements ExprVisitor{
 
 	@Override
 	public Object visit(BinExpr e) {
-		switch(e.symbol){//consider adding parentheses
+		HeightVisitor hv=new HeightVisitor();
+		int le= (Integer)e.left.accept(hv);
+		int re= (Integer)e.right.accept(hv);
+		String lString=visit(e.left).toString();
+		String rString= visit(e.right).toString();
+		if(le>1){
+			lString="("+lString+")";
+		}
+		if(re>1){
+			rString="("+rString+")";
+		}
+		switch(e.symbol){
 		case PLUS:
-			return visit(e.left).toString()+"+("+visit(e.right).toString()+")";
+			return lString+"+"+rString;
 		case MINUS:
-			return visit(e.left).toString()+"-("+visit(e.right).toString()+")";
+			return lString+"-"+rString;
 		case MULT:
-			return visit(e.left).toString()+"*("+visit(e.right).toString()+")";
+			return lString+"*"+rString;
 		case DIV:
-			return visit(e.left).toString()+"/("+visit(e.right).toString()+")";
+			return lString+"/"+rString;
 		case EXP:
-			return visit(e.left).toString()+"^("+visit(e.right).toString()+")";
+			return lString+"^"+rString;
 		}
 		return null;
 	}
