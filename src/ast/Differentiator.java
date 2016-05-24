@@ -1,4 +1,4 @@
-package interpreters;
+package ast;
 
 public class Differentiator {
 

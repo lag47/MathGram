@@ -1,10 +1,8 @@
 package ast;
 
-import interpreters.ExprVisitor;
-
-public class BinExpr implements Expr {
+public class BinExpr extends Expr {
 	public enum Sym {
-		PLUS, MINUS, DIV, MULT;
+		PLUS, MINUS, DIV, MULT,EXP;
 	}
 
 	private Expr left;
@@ -14,11 +12,6 @@ public class BinExpr implements Expr {
 		this.left=left;
 		this.symbol=symbol;
 		this.right=right;
-	}
-	@Override
-	public Object accept(ExprVisitor ev) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

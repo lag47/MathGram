@@ -1,7 +1,9 @@
 package ast;
-import interpreters.*;
-public interface Expr {
+
+public abstract class Expr {
 	
-	public Object accept(ExprVisitor ev);
+	public Object accept(ExprVisitor ev){
+		return ev.visit(this);
+	}
 	
 }

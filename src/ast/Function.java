@@ -1,8 +1,5 @@
 package ast;
-
-import interpreters.ExprVisitor;
-
-public class Function implements Expr{
+public class Function extends Expr{
 	public enum Funct{
 		SIN,COS,LN;
 	}
@@ -12,10 +9,6 @@ public class Function implements Expr{
 		this.funct=funct;
 		this.arg=arg;
 	}
-	@Override
-	public Object accept(ExprVisitor ev) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+
 	
 }

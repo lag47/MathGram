@@ -1,4 +1,4 @@
-package interpreters;
+package ast;
 
 import ast.BinExpr;
 import ast.Expr;
@@ -45,6 +45,12 @@ public class Interpreter implements ExprVisitor {
 
 	@Override
 	public Object visit(Variable e) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Object visit(Expr e) {
 		// TODO Auto-generated method stub
 		return null;
 	}
