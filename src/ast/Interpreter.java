@@ -31,7 +31,16 @@ public class Interpreter implements ExprVisitor {
 		double r=(Double)visit(e.right);
 		switch (e.symbol){
 		case PLUS:
-			break;
+			return l+r;
+		case MINUS:
+			return l-r;
+		case DIV:
+			return l/r;
+		case MULT:
+			return l*r;
+		case EXP:
+			return Math.pow(l, r);
+		
 		}
 		return null;
 	}
@@ -62,13 +71,28 @@ public class Interpreter implements ExprVisitor {
 
 	@Override
 	public Object visit(Variable e) {
-		// TODO Auto-generated method stub
+		for(int i=0;i<vars.length;i++){
+			if(vars[i]==e.name){
+				return vars[i];
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public Object visit(Expr e) {
-		// TODO Auto-generated method stub
+		if(e instanceof Number){
+			return visit((Number)e);
+		}
+		if(e instanceof BinExpr){
+			return visit((BinExpr)e);
+		}
+		if(e instanceof Function){
+			return visit((Function)e);
+		}
+		if(e instanceof Variable){
+			return visit((Variable)e);
+		}
 		return null;
 	}
 
